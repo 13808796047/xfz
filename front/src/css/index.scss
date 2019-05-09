@@ -10,7 +10,7 @@ $navHeight: 64px;
   left: 0;
   top: 0;
   right: 0;
-
+z-index: 100;
   .container {
     width: $pageWidth;
     height: 100%;
@@ -96,13 +96,13 @@ $navHeight: 64px;
         height: $bannerHeight;
         background: #0e275e;
         position: relative;
-
+        overflow: hidden;
         .banner-ul {
           overflow: hidden;
-          width: $bannerWidth*4;
+          //width: $bannerWidth*4;
           position: absolute;
           left: 0;
-
+          z-index: 0;
           li {
             float: left;
             width: $bannerWidth;
@@ -133,6 +133,34 @@ $navHeight: 64px;
 
         .right-arrow {
           right: 20px;
+        }
+        .page-control-group{
+          position: absolute;
+          left:0;
+          right:0;
+          bottom:20px;
+          .page-control{
+            margin: 0 auto;
+            overflow: hidden;
+            width:12*4px+64px;
+            li{
+              width:12px;
+              height:12px;
+              border: 1px solid #fff;
+              -webkit-border-radius: 50%;
+              -moz-border-radius: 50%;
+              border-radius: 50%;
+              float: left;
+              margin: 0 8px;
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+              cursor: pointer;
+              &.active{
+                background: #fff;
+              }
+            }
+          }
         }
       }
     }
