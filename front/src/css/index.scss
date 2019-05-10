@@ -2,9 +2,10 @@
 @import "constants";
 
 $navHeight: 64px;
-body{
+body {
   background: #f2f2f2;
 }
+
 .header {
   width: 100%;
   height: 64px;
@@ -13,7 +14,8 @@ body{
   left: 0;
   top: 0;
   right: 0;
-z-index: 100;
+  z-index: 100;
+
   .container {
     width: $pageWidth;
     height: 100%;
@@ -97,12 +99,14 @@ z-index: 100;
         background: #0e275e;
         position: relative;
         overflow: hidden;
+
         .banner-ul {
           overflow: hidden;
           //width: $bannerWidth*4;
           position: absolute;
           left: 0;
           z-index: 0;
+
           li {
             float: left;
             width: $bannerWidth;
@@ -134,18 +138,21 @@ z-index: 100;
         .right-arrow {
           right: 20px;
         }
-        .page-control-group{
+
+        .page-control-group {
           position: absolute;
-          left:0;
-          right:0;
-          bottom:20px;
-          .page-control{
+          left: 0;
+          right: 0;
+          bottom: 20px;
+
+          .page-control {
             margin: 0 auto;
             overflow: hidden;
-            width:12*4px+64px;
-            li{
-              width:12px;
-              height:12px;
+            width: 12*4px+64px;
+
+            li {
+              width: 12px;
+              height: 12px;
               border: 1px solid #fff;
               -webkit-border-radius: 50%;
               -moz-border-radius: 50%;
@@ -156,7 +163,8 @@ z-index: 100;
               -moz-box-sizing: border-box;
               box-sizing: border-box;
               cursor: pointer;
-              &.active{
+
+              &.active {
                 background: #fff;
               }
             }
@@ -165,101 +173,413 @@ z-index: 100;
       }
     }
 
-    .sidebar-wrapper {
-      float: right;
-      width: 356px;
-      height: 500px;
-      background: darkseagreen;
-    }
+
   }
 }
 
-.main{
-  .wrapper{
-    .news-wrapper{
-      .list-outer-group{
+.main {
+  .wrapper {
+    .news-wrapper {
+      .list-outer-group {
         background: #fff;
         margin-top: 14px;
-        .list-tab{
-          width:100%;
+
+        .list-tab {
+          width: 100%;
           height: 66px;
           overflow: hidden;
-          border:1px solid #eee;
+          border: 1px solid $lineColor;
           border-left: none;
           border-right: none;
-          li{
+
+          li {
             float: left;
             padding: 0 8px;
             margin-top: 20px;
-            a{
-              color:#878787;
+
+            a {
+              color: $assistFontColor;
             }
-            &:first-of-type{
-              border-left:5px solid $themeColor;
+
+            &:first-of-type {
+              border-left: 5px solid $themeColor;
             }
-            &.active{
-              a{
-                color:#212121;
+
+            &.active {
+              a {
+                color: $mainFontColor;
               }
             }
           }
         }
-        .list-inner-group{
-          li{
+
+        .list-inner-group {
+          li {
             padding: 20px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid $lineColor;
             overflow: hidden;
-            .thumbnail-group{
+
+            .thumbnail-group {
               float: left;
               height: 162px;
-              width:226px;
-              img{
+              width: 226px;
+
+              img {
                 width: 100%;
                 height: 100%;
               }
             }
-            .news-group{
+
+            .news-group {
               float: right;
-              width:504px;
+              width: 504px;
               height: 162px;
               position: relative;
-              .title{
+
+              .title {
 
                 font-size: 22px;
-                a{
-                  color: #212121;
-                  &:hover{
-                    color:$themeColor;
+
+                a {
+                  color: $mainFontColor;
+
+                  &:hover {
+                    color: $themeColor;
                   }
                 }
               }
-              .desc{
-                color:#878787;
+
+              .desc {
+                color: $assistFontColor;
                 font-size: 14px;
                 margin-top: 10px;
               }
-              .more{
+
+              .more {
                 position: absolute;
-                left:0;
+                left: 0;
                 right: 0;
                 bottom: 0;
                 font-size: 14px;
-                color:#878787;
-                .category{
-                  color:$themeColor
+                color: $assistFontColor;
+
+                .category {
+                  color: $themeColor
                 }
-                .pub-time{
+
+                .pub-time {
                   float: right;
                   margin-left: 20px;
                 }
-                .author{
+
+                .author {
                   float: right;
                 }
               }
+            }
+          }
+        }
+
+        .load-more-group {
+          padding: 20px 0;
+          text-align: center;
+
+          .load-more {
+            width: 402px;
+            height: 40px;
+            background: #d2dcea;
+            color: #6d85dc;
+            border: none;
+            outline: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main {
+  .wrapper {
+    .sidebar-wrapper {
+      float: right;
+      width: 356px;
+      background: #fff;
+
+      .title-group {
+        overflow: hidden;
+        padding: 20px;
+
+        .title {
+          float: left;
+          font-size: 18px;
+          color: $mainFontColor;
+        }
+
+        .more {
+          float: right;
+          font-size: 14px;
+          color: $themeColor;
+        }
+      }
+
+      .advertise-group {
+        img {
+          width: 100%;
+        }
+      }
+
+      .focus-group {
+        padding: 0 20px;
+        overflow: hidden;
+
+        .left-group {
+          width: 190px;
+          float: left;
+
+          li {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            background: url("https://www.xfz.cn/static/build/images/side-icon.png") no-repeat;
+            -webkit-background-size: 26%;
+            background-size: 26%;
+            margin-bottom: 20px;
+            overflow: hidden;
+
+            a {
+              float: left;
+              margin-left: 64px;
+              color: $assistFontColor;
+              font-size: 14px;
+            }
+          }
+
+          .zhihu {
+            background-position: 0 0;
+          }
+
+          .weibo {
+            background-position: 0 -63px;
+          }
+
+          .toutiao {
+            background-position: 0 -122px;
+          }
+        }
+
+        .right-group {
+          float: right;
+          width: 100px;
+          background: url("https://www.xfz.cn/static/build/images/xfz-wechat-share.png") no-repeat;
+          -webkit-background-size: 100%;
+          background-size: 100%;
+
+          .desc {
+            text-align: center;
+            margin-top: 120px;
+            color: $assistFontColor;
+            font-size: 12px;
+          }
+        }
+      }
+
+      .hot-list-group {
+        li {
+          padding: 20px 20px 20px;
+          overflow: hidden;
+          border-bottom: 1px solid $lineColor;
+
+          .left-group {
+            float: left;
+            width: 204px;
+            height: 72px;
+            position: relative;
+
+            .title {
+              a {
+                font-size: 14px;
+                color: $mainFontColor;
+
+                &:hover {
+                  color: $themeColor;
+                }
+              }
+            }
+
+            .more {
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              font-size: 12px;
+
+              .category {
+                color: $themeColor;
+                float: left;
+              }
+
+              .pub-time {
+                float: right;
+                color: $assistFontColor;
+              }
+            }
+          }
+
+          .right-group {
+            width: 102px;
+            float: right;
+            height: 72px;
+
+            img {
+              width: 100%;
+              height: 100%;
             }
           }
         }
       }
     }
+  }
+}
+
+.footer {
+  font-size: 14px;
+  color: #c9c9c9;
+  padding-top: 20px;
+
+  .top-group {
+    background: #555e67;
+    height: 100px;
+    padding-top: 25px;
+    box-sizing: border-box;
+
+    .top-inner-group {
+      position: relative;
+      width: $pageWidth;
+      margin: 0 auto;
+      //overflow: hidden;
+
+      .logo-box {
+        background: url("https://www.xfz.cn/static/build/images/logo-test.png") no-repeat;
+        -webkit-background-size: 100%;
+        background-size: 100%;
+        width: 168px;
+        height: 54px;
+        float: left;
+      }
+
+      .detail-group {
+        float: left;
+        margin-left: 84px;
+
+        .line1 {
+          overflow: hidden;
+
+          .links {
+            float: left;
+            overflow: hidden;
+
+            li {
+              float: left;
+              padding: 0 10px;
+              border-right: 1px solid #c9c9c9;
+
+              &:last-of-type {
+                border-right: none;
+              }
+
+              &:first-of-type {
+                padding-left: 0;
+              }
+
+              a {
+                color: #c9c9c9;
+              }
+            }
+          }
+
+          .about-us {
+            float: left;
+            margin-left: 40px;
+
+            .title {
+              float: left;
+            }
+
+            .social-group {
+              float: left;
+              overflow: hidden;
+
+              li {
+                float: left;
+
+                .text {
+                  margin-left: 24px;
+                  color: #fff;
+                }
+              }
+
+              .wechat {
+                background: url("https://www.xfz.cn/static/build/images/wx-icon.png") no-repeat;
+                -webkit-background-size: 28%;
+                background-size: 28%;
+                cursor: pointer;
+
+                &:hover .wx-qrcode{
+                  display: block;
+                }
+
+
+                .wx-qrcode {
+                  width: 204px;
+                  height: 204px;
+                  background: url("https://www.xfz.cn/static/build/images/xfz-wechat-share.png") no-repeat;
+                  -webkit-background-size: 100%;
+                  background-size: 100%;
+                  position: absolute;
+                  right: 360px;
+                  top: -210px;
+                  display: none;
+                }
+
+              }
+
+
+              .weibo {
+                margin-left: 20px;
+                background: url("https://www.xfz.cn/static/build/images/wx-icon.png") no-repeat;
+                -webkit-background-size: 28%;
+                background-size: 16%;
+              }
+            }
+          }
+
+
+        }
+
+        .line2 {
+          margin-top: 15px;
+          padding: 5px 0;
+          overflow: hidden;
+
+          .address {
+            float: left;
+
+          }
+
+          .contact {
+            float: left;
+            margin-left: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-group {
+    background: #383e44;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
   }
 }
