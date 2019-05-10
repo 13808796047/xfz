@@ -1,7 +1,7 @@
-@import "header";
-@import "footer";
-@import "body";
-@import "constants";
+@import "../common/header";
+@import "../common/footer";
+@import "../common/body";
+@import "../common/constants";
 .main{
   margin-top: 64px;
   .course-nav{

@@ -1,7 +1,7 @@
-@import "header";
-@import "body";
-@import "footer";
-@import "constants";
+@import "../common/header";
+@import "../common/body";
+@import "../common/footer";
+@import "../common/constants";
 
 .main {
   .wrapper {

@@ -5,9 +5,9 @@ var gulp = require('gulp'), cssnano = require('gulp-cssnano'), rename = require(
 
 var path = {
     'html': './templates/**/',
-    'css': './src/css/',
-    'js': './src/js/',
-    'images': './src/images/',
+    'css': './src/css/**/',
+    'js': './src/js/**/',
+    'images': './src/images/**/',
     'css_dist': './dist/css/',
     'js_dist': './dist/js/',
     'images_dist': './dist/images/'
