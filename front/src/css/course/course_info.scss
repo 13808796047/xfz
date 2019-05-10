@@ -1,0 +1,66 @@
+@import "../common/header";
+@import "../common/footer";
+@import "../common/body";
+@import "../common/constants";
+@import "course_nav";
+
+.main {
+  .wrapper {
+    margin-top: 20px;
+
+    .course-wrapper {
+      background: #fff;
+
+      .course-info {
+        padding: 20px;
+
+        .course-title {
+          color: $mainFontColor;
+          font-size: 20px;
+        }
+
+        .price-group {
+          margin-top: 20px;
+          overflow: hidden;
+
+          .share-group {
+            margin-top: 20px;
+            float: left;
+            .title{
+              color:$assistFontColor;
+              font-size: 14px;
+            }
+          }
+          .buy-group {
+            float: right;
+            .price{
+              font-size: 16px;
+            }
+            .free{
+              color:$freeColor;
+            }
+            .pay{
+              color:$payColor
+            }
+            .buy-btn{
+              color:#fff;
+              background: #ff8d3f;
+              display: inline-block;
+              line-height: 40px;
+              text-align: center;
+              border-radius: 5px;
+              margin-left: 20px;
+              height: 40px;
+              width:120px;
+            }
+          }
+        }
+      }
+      .video-group{
+        height: 600px;
+        width:100%;
+        background: pink;
+      }
+    }
+  }
+}
