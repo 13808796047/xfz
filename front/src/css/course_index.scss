@@ -1,0 +1,99 @@
+@import "header";
+@import "footer";
+@import "body";
+@import "constants";
+.main{
+  margin-top: 64px;
+  .course-nav{
+    $courseNavHeight:54px;
+    width:100%;
+    height:$courseNavHeight;
+    box-shadow: 0 5px 5px rgba(0,0,0,.1);
+    background: #fff;
+    .nav-container{
+      overflow: hidden;
+      width:$pageWidth;
+      margin:0 auto;
+      height: $courseNavHeight;
+      line-height: $courseNavHeight;
+      h3.title{
+        float: left;
+        color:#696969;
+        font-size: 24px;
+        font-weight: 800;
+      }
+      .nav-list{
+        float: left;
+        margin-left: 100px;
+        li{
+          float: left;
+          margin-right: 40px;
+          a{
+            color:#888;
+          }
+          &.active{
+            a{
+              color:$mainFontColor;
+            }
+          }
+        }
+      }
+    }
+  }
+  .wrapper{
+    .course-list{
+      display: flex;
+      flex-direction:row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px;
+      li{
+        $courseItemHeight:280px;
+        $thumbnailHeight:158px;
+        width:278px;
+        height: $courseItemHeight;
+        background: #fff;
+        margin-bottom: 20px;
+        &:hover{
+          box-shadow: 0 3px 15px rgba(0,0,0,.1);
+        }
+        .thumbnail-group{
+          width:100%;
+          height: $thumbnailHeight;
+          .thumbnil{
+            height: 100%;
+            width: 100%;
+          }
+        }
+        .course-info{
+          padding: 16px;
+          width:100%;
+          box-sizing: border-box;
+          height: $courseItemHeight - $thumbnailHeight;
+          position: relative;
+          .title{
+            color:$mainFontColor;
+          }
+          .author{
+            margin-top: 10px;
+            color:$assistFontColor;
+            font-size: 14px;
+          }
+          .price-group{
+            position: absolute;
+            left:16px;
+            right: 16px;
+            bottom: 16px;
+            text-align: right;
+            .free{
+              color:rgb(126,211,33)
+            }
+            .pay{
+              color: #ee2a5d;
+            }
+          }
+        }
+      }
+    }
+  }
+}
