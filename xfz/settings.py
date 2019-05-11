@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.xfzauth',
     'apps.cms',
     'apps.news',
 
@@ -106,7 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+# 改变Auth模型为自己定义的
+AUTH_USER_MODEL = 'xfzauth.User'
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
