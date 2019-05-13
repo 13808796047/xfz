@@ -1,7 +1,7 @@
 from django.contrib.auth import login, logout, authenticate
 from django.views.decorators.http import require_POST
 from .forms import LoginForm
-from django.http import JsonResponse
+from django.shortcuts import redirect, reverse
 from utils import restful
 
 
@@ -28,3 +28,8 @@ def login_view(request):
     else:
         errors = form.get_errors()
         return restful.params_error(message=errors)
+
+
+def logout_view(request):
+    logout(request)
+    return redirect(reverse('index'))

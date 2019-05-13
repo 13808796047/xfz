@@ -1,7 +1,7 @@
 var gulp = require('gulp'), cssnano = require('gulp-cssnano'), rename = require('gulp-rename'),
     uglify = require('gulp-uglify'), concat = require('gulp-concat')
     , imagemin = require('gulp-imagemin'), cache = require('gulp-cache'), bs = require('browser-sync').create(),
-    sass = require('gulp-sass'),util = require('gulp-util'),sourcemaps = require('gulp-sourcemaps')
+    sass = require('gulp-sass'), util = require('gulp-util'), sourcemaps = require('gulp-sourcemaps')
 
 var path = {
     'html': './templates/**/',
@@ -30,7 +30,7 @@ gulp.task('css', () => {
 gulp.task('js', () => {
     return gulp.src(path.js + '*.js')
         .pipe(sourcemaps.init())
-        .pipe(uglify()).on('error',util.log)
+        .pipe(uglify()).on('error', util.log)
         .pipe(rename({'suffix': '.min'}))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.js_dist))
@@ -59,8 +59,8 @@ gulp.task('bs', () => {
     })
 })
 //创建一个默认的任务
-gulp.task('default', gulp.parallel('bs', 'watch'))
-
+// gulp.task('default', gulp.parallel('bs', 'watch'))
+gulp.task('default', gulp.parallel('watch'))
 
 // var gulp = require('gulp'), connect = require('gulp-connect'), cssnano = require('gulp-cssnano'),
 //     rename = require('gulp-rename'), uglify = require('gulp-uglify'), concat = require('gulp-concat')

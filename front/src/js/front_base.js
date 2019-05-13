@@ -1,3 +1,20 @@
+function FrontBase() {
+
+}
+
+FrontBase.prototype.run = function () {
+    var self = this;
+    self.listenAuthBoxHover();
+};
+FrontBase.prototype.listenAuthBoxHover = function () {
+    var authBox = $('.auth-box');
+    var userMoreBox = $('.user-more-box');
+    authBox.hover(function () {
+        userMoreBox.show();
+    }, function () {
+        userMoreBox.hide();
+    });
+};
 //点击登录，弹出模态对话框
 
 //类
@@ -95,8 +112,11 @@ Auth.prototype.listenSigninEvent = function () {
             }
         })
     });
-}
+};
+
 $(function () {
+    var frontBase = new FrontBase();
     var auth = new Auth();
     auth.run();
+    frontBase.run();
 });
