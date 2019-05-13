@@ -1,4 +1,5 @@
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.hashers import check_password
 from django.views.decorators.http import require_POST
 from .forms import LoginForm
 from django.http import JsonResponse
@@ -11,9 +12,7 @@ def login_view(request):
         telephone = form.cleaned_data.get('telephone')
         password = form.cleaned_data.get('password')
         remember = form.cleaned_data.get('remember')
-        print(telephone,password,remember)
         user = authenticate(request, username=telephone, password=password)
-        print(user)
         if user:
             if user.is_active:
                 login(request, user)
