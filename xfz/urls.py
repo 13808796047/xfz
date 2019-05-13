@@ -15,8 +15,12 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path, include
+from apps.news import views
 
 urlpatterns = [
-    path('cms/',include('apps.cms.urls')),
+    path('', views.index, name='index'),
+    path('search/', views.search, name='search'),
+    path('news/', include('apps.news.urls')),
+    path('cms/', include('apps.cms.urls')),
     path('account/', include('apps.xfzauth.urls')),
 ]
