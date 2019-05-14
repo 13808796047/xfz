@@ -33,6 +33,7 @@ Auth.prototype.run = function () {
     self.listenSigninEvent();
     self.listenImgCaptchaEvent();
     self.listenSmsCaptchaEvent();
+    self.listenSignupEvent();
 };
 Auth.prototype.showEvent = function () {
     var self = this;
@@ -108,7 +109,7 @@ Auth.prototype.listenSmsCaptchaEvent = function () {
             return;
         }
         xfzajax.get({
-            'url': 'account/sms_captcha/',
+            'url': '/account/sms_captcha/',
             'data': {
                 'telephone': telephone,
             },
@@ -132,6 +133,7 @@ Auth.prototype.listenSigninEvent = function () {
     var submitBtn = signinGroup.find('.submit-btn');
 
     submitBtn.click(function () {
+        event.preventDefault();
         var telephone = telephoneInput.val();
         var password = passwordInput.val();
         var remember = rememberInput.prop('checked');
@@ -143,29 +145,48 @@ Auth.prototype.listenSigninEvent = function () {
                 'remember': remember ? 1 : 0
             },
             'success': function (result) {
-                if (result.code == 200) {
-                    self.hideEvent();
-                    window.location.reload();
-                } else {
-                    var messageObject = result.message;
-                    if (typeof messageObject == 'string' || messageObject.constructor == String) {
-                        window.messageBox.show(messageObject);
-                    } else {
-                        for (var key in messageObject) {
-                            var messages = messageObject[key];
-                            var message = messages['message'];
-                            window.messageBox.show(message)
-                        }
-                    }
-                }
-            },
-            'fail': function (error) {
-                console.log(error)
+                self.hideEvent();
+                window.location.reload();
             }
         })
     });
 };
+Auth.prototype.listenSignupEvent = function () {
+    var signupGroup = $('.signup-group');
+    var submitBtn = signupGroup.find('.submit-btn');
+    submitBtn.click(function () {
+        event.preventDefault();
+        var telephoneInput = signupGroup.find("input[name='telephone']");
+        var usernameInput = signupGroup.find("input[name='username']");
+        var imgCaptchaInput = signupGroup.find("input[name='img_captcha']");
+        var password1Input = signupGroup.find("input[name='password1']");
+        var password2Input = signupGroup.find("input[name='password2']");
+        var smsCaptchaInput = signupGroup.find("input[name='sms_captcha']");
 
+        var telephone = telephoneInput.val();
+        var username = usernameInput.val();
+        var img_captcha = imgCaptchaInput.val();
+        var password1 = password1Input.val();
+        var password2 = password2Input.val();
+        var sms_captcha = smsCaptchaInput.val();
+        xfzajax.post({
+            'url': '/account/register/',
+            'data': {
+                'telephone': telephone,
+                'username': username,
+                'img_captcha': img_captcha,
+                'password1': password1,
+                'password2': password2,
+                'sms_captcha': sms_captcha
+            },
+            'success': function (result) {
+
+                window.location.reload();
+            }
+        })
+
+    });
+};
 $(function () {
     var frontBase = new FrontBase();
     var auth = new Auth();

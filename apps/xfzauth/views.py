@@ -1,6 +1,6 @@
 from django.contrib.auth import login, logout, authenticate
 from django.views.decorators.http import require_POST
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 from django.shortcuts import redirect, reverse
 from utils import restful
 from utils.captcha.xfzcaptcha import Captcha
@@ -8,6 +8,9 @@ from io import BytesIO
 from django.http import HttpResponse
 from utils.aliyunsdk import aliyunsms
 from utils import restful
+from django.core.cache import cache
+from django.contrib.auth import get_user_model
+
 
 @require_POST
 def login_view(request):
@@ -51,12 +54,35 @@ def img_captcha(request):
     # 从ByteIO的管道中，读取出图片数据，保存到response对象上
     response.write(out.read())
     response['Content-length'] = out.tell()
+    cache.set(text.lower(), text.lower(), 5 * 60)
     return response
+
+
+@require_POST
+def register(request):
+    form = RegisterForm(request.POST)
+    if form.is_valid():
+        telephone = form.cleaned_data.get('telephone')
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = get_user_model().objects.create_user(telephone=telephone, username=username, password=password)
+        login(request, user)
+        return restful.ok()
+    else:
+        return restful.params_error(message=form.get_errors())
 
 
 def sms_captcha(request):
     telephone = request.GET.get('telephone')
     code = Captcha.gene_text()
-    result = aliyunsms.send_sms(telephone, code)
-    print(result)
+    cache.set(telephone, code, 5 * 60)
+    print(code)
+    # aliyunsms.send_sms(telephone, code)
     return restful.ok()
+
+
+def cache_test(request):
+    cache.set('username', 'zhiao', 60)
+    result = cache.get('username')
+    print(result)
+    return HttpResponse('success')
