@@ -6,6 +6,7 @@ body {
 .main {
   margin-top: $navHeight+20px;
   width: 100%;
+  z-index: 1;
 
   .wrapper {
     width: $pageWidth;

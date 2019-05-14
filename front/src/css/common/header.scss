@@ -8,13 +8,13 @@
   left: 0;
   top: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1;
 
   .container {
     width: $pageWidth;
     height: 100%;
     margin: 0 auto;
-    overflow: hidden;
+    //overflow: hidden;
 
     .logo-box {
       width: 140px;
@@ -60,44 +60,43 @@
       .iconfont {
         color: #fff;
         font-size: 14px;
-
       }
-
       a {
         color: #fff;
+        display:inline;
       }
-     .user-more-box{
-                background: #fff;
-                width: 140px;
-                //height: 90px;
-                position: absolute;
-                box-shadow: 0 3px 4px #ccc;
-                border-radius: 5px;
-                top: 65px;
-                left: 50%;
-                margin-left: -70px;
-                font-size: 14px;
-                z-index: 200;
-                display: none;
+      .user-more-box {
+        background: #fff;
+        width: 140px;
+        //height: 90px;
+        position: absolute;
+        box-shadow: 0 3px 4px #ccc;
+        border-radius: 5px;
+        top: 65px;
+        left: 50%;
+        margin-left: -70px;
+        font-size: 14px;
+        z-index: 2;
+        display: none;
+        .triangle{
+            border: solid transparent;
+            border-width: 10px;
+            border-bottom-color: #fff;
+            display: block;
+            width: 0;
+            height: 0;
+            margin-top: -20px;
+            margin-left: 60px;
+        }
+        a{
+            text-align: center;
+            height: 44px;
+            color: #6d85ac!important;
+            display: block;
+            line-height: 44px;
+        }
+      }
 
-                .triangle{
-                    border: solid transparent;
-                    border-width: 10px;
-                    border-bottom-color: #fff;
-                    display: block;
-                    width: 0;
-                    height: 0;
-                    margin-top: -20px;
-                    margin-left: 60px;
-                }
-                a{
-                    text-align: center;
-                    height: 44px;
-                    color: #6d85ac!important;
-                    display: block;
-                    line-height: 44px;
-                }
-            }
     }
 
   }
