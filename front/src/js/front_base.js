@@ -130,31 +130,31 @@ Auth.prototype.listenSigninEvent = function () {
     var telephoneInput = signinGroup.find("input[name='telephone']");
     var passwordInput = signinGroup.find("input[name='password']");
     var rememberInput = signinGroup.find("input[name='remember']");
-    var submitBtn = signinGroup.find('.submit-btn');
 
+    var submitBtn = signinGroup.find(".submit-btn");
     submitBtn.click(function () {
-        event.preventDefault();
         var telephone = telephoneInput.val();
         var password = passwordInput.val();
-        var remember = rememberInput.prop('checked');
+        var remember = rememberInput.prop("checked");
+
         xfzajax.post({
             'url': '/account/login/',
             'data': {
                 'telephone': telephone,
                 'password': password,
-                'remember': remember ? 1 : 0
+                'remember': remember?1:0
             },
             'success': function (result) {
                 self.hideEvent();
                 window.location.reload();
             }
-        })
+        });
     });
 };
 Auth.prototype.listenSignupEvent = function () {
     var signupGroup = $('.signup-group');
     var submitBtn = signupGroup.find('.submit-btn');
-    submitBtn.click(function () {
+    submitBtn.click(function (event) {
         event.preventDefault();
         var telephoneInput = signupGroup.find("input[name='telephone']");
         var usernameInput = signupGroup.find("input[name='username']");
@@ -169,8 +169,9 @@ Auth.prototype.listenSignupEvent = function () {
         var password1 = password1Input.val();
         var password2 = password2Input.val();
         var sms_captcha = smsCaptchaInput.val();
+
         xfzajax.post({
-            'url': '/account/register/',
+            'url': 'account/register/',
             'data': {
                 'telephone': telephone,
                 'username': username,
@@ -180,11 +181,9 @@ Auth.prototype.listenSignupEvent = function () {
                 'sms_captcha': sms_captcha
             },
             'success': function (result) {
-
                 window.location.reload();
             }
-        })
-
+        });
     });
 };
 $(function () {

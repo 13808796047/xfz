@@ -3,5 +3,8 @@ from . import views
 
 app_name = 'cms'
 urlpatterns = [
-    path('login/', views.login_view, name='login'),
+    path('', views.index, name='index'),
+    path('create_news', views.CreateNewsView.as_view(), name='create_news'),
+    path('news_category', views.news_category, name='news_category'),
+    path('add_news_category/', views.add_news_category, name='add_news_category'),
 ]
